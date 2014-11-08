@@ -22,7 +22,7 @@ class SplashScreen extends Screen {
     //stack.push(new LabScreen());
     _spriteBatch.children.clear();
     if (_text == null) {
-      _text = AssetManager.renderStr("Avenir", FontAsset.AVENIR);
+      _text = AssetManager.renderStr("POOP", FontAsset.AVENIR);
       if (_text != null) {
         _text.position = new Point(100, 100);
         _spriteBatch.children.add(_text);

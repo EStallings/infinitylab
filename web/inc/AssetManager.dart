@@ -45,10 +45,10 @@ class AssetManager {
     return _sprites[a];
   }
 
-  static BitmapText renderStr(String str, FontAsset font) {
+  static BitmapText renderStr(String str, FontAsset fasset) {
     BitmapText bt = null;
     try {
-      bt = new BitmapText(str, new TextStyle(font: _fonts[font]));
+      bt = new BitmapText(str, new TextStyle(font: _fonts[fasset]));
     } catch (Exception) {
       print("AssetManager.renderStr: Cannot render text!\n");
     }
@@ -65,7 +65,7 @@ class AssetManager {
   }
 
   static void _loadFont(FontAsset asset, String fontName, int fontSize) {
-    AsssetLoadr l = new AssetLoader(["../fnt/" + fontName + ".fnt"])
+    AsssetLoadr l = new AssetLoader(["../fnt/" + fontName.toLowerCase() + ".fnt"])
       ..onComplete.listen((c) {
         _fonts.putIfAbsent(asset, () => fontSize.toString() + "px " + fontName);
       })
@@ -73,8 +73,8 @@ class AssetManager {
   }
 
   static void _initFonts() {
-    _loadFont(FontAsset.COMICBULLSHIT, "desyrel", 128);
-    _loadFont(FontAsset.AVENIR, "AvenirLTStd-Book", 128);
+    _loadFont(FontAsset.COMICBULLSHIT, "Desyrel", 128);
+    _loadFont(FontAsset.AVENIR, "Avenir", 32);
   }
 
   static void _initSprites() {
