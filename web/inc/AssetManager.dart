@@ -6,7 +6,8 @@ import 'Screen.dart';
 class Asset {
   static const TEST = const Asset._(0);
   static const TEST2 = const Asset._(1);
-  static get values => [TEST, TEST2];
+  static const SPLASHLOGO = const Asset._(2);
+  static get values => [TEST, TEST2, SPLASHLOGO];
 
   final int value;
   const Asset._(this.value);
@@ -46,7 +47,8 @@ class AssetManager {
   static void _initSprites() {
     _sprites = {
       Asset.TEST: new Sprite.fromImage("img/test.png"),
-      Asset.TEST2: new Sprite.fromImage("img/test2.png")
+      Asset.TEST2: new Sprite.fromImage("img/test2.png"),
+      Asset.SPLASHLOGO: new Sprite.fromImage("img/splashlogo.png")
     };
   }
 }

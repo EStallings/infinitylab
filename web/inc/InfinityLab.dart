@@ -2,7 +2,7 @@
 import 'dart:html';
 import '../lib/pixi.dart';
 import 'AssetManager.dart';
-import 'MainMenuScreen.dart';
+import 'SplashScreen.dart';
 import 'Screen.dart';
 import 'ScreenStack.dart';
 import 'Util.dart';
@@ -24,7 +24,7 @@ class InfinityLab {
 
   void _init() {
     AssetManager.init();
-    _screenStack.push(new MainMenuScreen());
+    _screenStack.push(new SplashScreen());
     _initListeners();
     _initRenderer();
   }
