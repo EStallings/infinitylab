@@ -70,7 +70,7 @@ class InfinityLab {
       if (!_screenStack.peek().update(_screenStack)) {
         _screenStack.pop();
       } else {
-        _screenStack.peek().render(_stage);
+        _screenStack.peek().render(_screenStack, _stage);
         _render();
       }
       _clampFramerate();

@@ -24,7 +24,7 @@ class SplashScreen extends Screen {
     if (_text == null) {
       _text = AssetManager.renderStr("POOP", FontAsset.AVENIR);
       if (_text != null) {
-        _text.position = new Point(100, 100);
+        _text.position = new Point(200, 200);
         _spriteBatch.children.add(_text);
       }
     } else {
@@ -36,7 +36,7 @@ class SplashScreen extends Screen {
     return true;
   }
 
-  void render(Stage stage) {
+  void render(ScreenStack stack, Stage stage) {
     stage.children.clear();
     stage.children.add(_spriteBatch);
   }

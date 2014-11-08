@@ -74,7 +74,7 @@ class AssetManager {
 
   static void _initFonts() {
     _loadFont(FontAsset.COMICBULLSHIT, "Desyrel", 128);
-    _loadFont(FontAsset.AVENIR, "Avenir", 32);
+    _loadFont(FontAsset.AVENIR, "Avenir", 128);
   }
 
   static void _initSprites() {

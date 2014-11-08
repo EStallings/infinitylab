@@ -23,7 +23,7 @@ class MainMenuScreen extends Screen {
     return true;
   }
 
-  void render(Stage stage) {
+  void render(ScreenStack stack, Stage stage) {
     stage.children.clear();
     stage.children.add(AssetManager.getSprite(Asset.TEST));
   }
