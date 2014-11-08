@@ -36,7 +36,7 @@ class AssetManager {
     window.requestAnimationFrame(this.animate);
   }
 
-  void animate(int num) {
+  void animate(double num) {
     window.requestAnimationFrame(this.animate);
     sprite.rotation += 0.1;
     renderer.render(stage);
