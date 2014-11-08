@@ -12,8 +12,9 @@ class AssetManager {
   static Renderer renderer;
   static Stage stage = new Stage(new Colour.fromHtml('#fff'));
   static Sprite sprite;
+  static double rotRate = 0.0;
 
-  void init() {
+  void _init() {
     sprite = new Sprite.fromImage("img/test.png");
     try {
       renderer = new WebGLRenderer(width: Screen.WIDTH,
@@ -26,23 +27,27 @@ class AssetManager {
   }
 
   AssetManager() {
-    init();
+    _init();
     document.body.append(renderer.view);
 
     sprite.anchor = new Point(0.5, 0.5);
     sprite.position = new Point(Screen.WIDTH / 2, Screen.HEIGHT / 2);
 
     stage.children.add(sprite);
-    window.requestAnimationFrame(this.animate);
   }
 
-  void animate(double num) {
-    window.requestAnimationFrame(this.animate);
-    sprite.rotation += 0.1;
+  void run() {
+    window.requestAnimationFrame(_animate);
+  }
+
+  void _animate(double num) {
+    window.requestAnimationFrame(_animate);
+    sprite.rotation += rotRate;
+    rotRate += 0.0001;
     renderer.render(stage);
   }
 }
 
 void main() {
-  new AssetManager();
+  new AssetManager().run();
 }
