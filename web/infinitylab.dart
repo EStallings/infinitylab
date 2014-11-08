@@ -1,16 +1,48 @@
+/* -*- dart -*- */
 import 'dart:html';
+import 'lib/pixi.dart';
 
-void main() {
-  querySelector("#sample_text_id")
-      ..text = "Click me!"
-      ..onClick.listen(reverseText);
+class Screen {
+  /* Ahhhh these aren't constant so don't modify them. */
+  static const int HEIGHT = 480;
+  static const int WIDTH = 640;
 }
 
-void reverseText(MouseEvent event) {
-  var text = querySelector("#sample_text_id").text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {
-    buffer.write(text[i]);
+class AssetManager {
+  static Renderer renderer;
+  static Stage stage = new Stage(new Colour.fromHtml('#fff'));
+  static Sprite sprite;
+
+  void init() {
+    sprite = new Sprite.fromImage("img/test.png");
+    try {
+      renderer = new WebGLRenderer(width: Screen.WIDTH,
+                                   height: Screen.HEIGHT);
+    } catch (Exception) {
+      print("WARNING: WebGL not supported. Using CanvasRenderer instead.\n");
+      renderer = new CanvasRenderer(width: Screen.WIDTH,
+                                    height: Screen.HEIGHT);
+    }
   }
-  querySelector("#sample_text_id").text = buffer.toString();
+
+  AssetManager() {
+    init();
+    document.body.append(renderer.view);
+
+    sprite.anchor = new Point(0.5, 0.5);
+    sprite.position = new Point(Screen.WIDTH / 2, Screen.HEIGHT / 2);
+
+    stage.children.add(sprite);
+    window.requestAnimationFrame(this.animate);
+  }
+
+  void animate(int num) {
+    window.requestAnimationFrame(this.animate);
+    sprite.rotation += 0.1;
+    renderer.render(stage);
+  }
+}
+
+void main() {
+  new AssetManager();
 }
