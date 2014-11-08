@@ -23,7 +23,7 @@ class FontAsset {
 
 class AssetManager {
   static Map _sprites;
-  static Map _fonts;
+  static Map _fonts = new Map();
   static bool _initialized = false;
 
   _AssetManager() {
@@ -31,14 +31,25 @@ class AssetManager {
   }
 
   static Sprite getSprite(Asset a) {
-    if(!_initialized) {
+    if (!_initialized) {
       throw "AssetManager.getSprite(): AssetManager not initialized!\n";
     }
     return _sprites[a];
   }
 
+  static BitmapText renderStr(String str, FontAsset font) {
+    BitmapText bt = null;
+    try {
+      bt = new BitmapText(str, new TextStyle(font: _fonts[font]));
+      print("Text <" + str + "> rendered!\n");
+    } catch (Exception) {
+      print("AssetManager.renderStr: Cannot render text!\n");
+    }
+    return bt;
+  }
+
   static void init() {
-    if(_initialized) {
+    if (_initialized) {
       throw "AssetManager.init(): AssetManager already initialized!\n";
     }
     _initSprites();
@@ -46,7 +57,16 @@ class AssetManager {
     _initialized = true;
   }
 
+  static void _loadFont(FontAsset asset, String fontName, int fontSize) {
+    AsssetLoadr l = new AssetLoader(["../fnt/" + fontName.toLowerCase() + ".fnt"])
+      ..onComplete.listen((c) {
+        _fonts.putIfAbsent(asset, () => fontSize.toString() + "px " + fontName);
+      })
+      ..load();
+  }
+
   static void _initFonts() {
+    _loadFont(FontAsset.COMICBULLSHIT, "Desyrel", 128);
   }
 
   static void _initSprites() {

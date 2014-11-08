@@ -1,12 +1,14 @@
 /* -*- dart -*- */
 
 import 'dart:html';
+import 'dart:math';
 import 'AssetManager.dart';
 import 'Screen.dart';
 import 'MainMenuScreen.dart';
 class SplashScreen extends Screen {
 
   Sprite _splashLogo = AssetManager.getSprite(Asset.SPLASHLOGO);
+  BitmapText _text = null;
 
   SplashScreen() {
     _splashLogo
@@ -15,15 +17,28 @@ class SplashScreen extends Screen {
   }
 
   void onMouseUp(InteractionData e, ScreenStack stack) {
-    stack.push(new MainMenuScreen());
+    if (_text == null) {
+      _text = AssetManager.renderStr("POOP", FontAsset.COMICBULLSHIT)
+        ..position = new Point(200, 200);
+    } else {
+      _text = null;
+    }
   }
 
   bool update(ScreenStack stack) {
+    if (_text != null) {
+      _text.rotation += 0.2;
+      _text.position = new Point(200 + 100 * sin(_text.rotation),
+                                 200 + 100 * cos(_text.rotation));
+    }
     return true;
   }
 
   void render(Stage stage) {
     stage.children.clear();
     stage.children.add(_splashLogo);
+    if (_text != null) {
+      stage.children.add(_text);
+    }
   }
 }
