@@ -14,8 +14,8 @@ class Asset {
 }
 
 class FontAsset {
-  static const DEFAULT = const FontAsset._(0);
-  static get values => [DEFAULT];
+  static const COMICBULLSHIT = const FontAsset._(0);
+  static get values => [COMICBULLSHIT];
 
   final int value;
   const FontAsset._(this.value);
@@ -23,6 +23,7 @@ class FontAsset {
 
 class AssetManager {
   static Map _sprites;
+  static Map _fonts;
   static bool _initialized = false;
 
   _AssetManager() {
@@ -42,6 +43,10 @@ class AssetManager {
     }
     _initSprites();
     _initialized = true;
+  }
+
+  static void _initFonts() {
+    _
   }
 
   static void _initSprites() {
