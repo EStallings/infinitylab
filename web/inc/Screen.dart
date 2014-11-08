@@ -8,6 +8,8 @@ abstract class Screen {
   static const int WIDTH = 640;
   static const double FPS = 30.0;
 
+  /* abstract */ void onMouseUp(InteractionData e);
+
   /* abstract */ bool update(ScreenStack stack);
 
   /* abstract */ void render(Stage stage);

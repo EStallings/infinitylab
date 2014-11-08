@@ -1,13 +1,23 @@
+/* -*- dart -*- */
 import 'dart:html';
 import '../lib/pixi.dart';
 import 'Screen.dart';
 
 class Asset {
   static const TEST = const Asset._(0);
-  static get values => [TEST];
+  static const TEST2 = const Asset._(1);
+  static get values => [TEST, TEST2];
 
   final int value;
   const Asset._(this.value);
+}
+
+class FontAsset {
+  static const DEFAULT = const FontAsset._(0);
+  static get values => [DEFAULT];
+
+  final int value;
+  const FontAsset._(this.value);
 }
 
 class AssetManager {
@@ -35,7 +45,8 @@ class AssetManager {
 
   static void _initSprites() {
     _sprites = {
-      Asset.TEST: new Sprite.fromImage("img/test.png")
+      Asset.TEST: new Sprite.fromImage("img/test.png"),
+      Asset.TEST2: new Sprite.fromImage("img/test2.png")
     };
   }
 }

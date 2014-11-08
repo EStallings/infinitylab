@@ -25,21 +25,30 @@ class InfinityLab {
   void _init() {
     AssetManager.init();
     _screenStack.push(new MainMenuScreen());
+    _initListeners();
     _initRenderer();
   }
 
   void _initRenderer() {
     try {
       _renderer = new WebGLRenderer(width: Screen.WIDTH,
-          height: Screen.HEIGHT);
+          height: Screen.HEIGHT, interactive: true);
     } catch (Exception) {
       print("WARNING: WebGL not supported. Using CanvasRenderer instead.\n");
       _renderer = new CanvasRenderer(width: Screen.WIDTH,
-          height: Screen.HEIGHT);
+          height: Screen.HEIGHT, interactive: true);
     }
     document.body.append(_renderer.view);
 
     _stage.children.add(AssetManager.getSprite(Asset.TEST));
+  }
+
+  void _initListeners() {
+    _stage.onMouseUp.listen((InteractionData e) {
+      if (_screenStack.size() > 0) {
+        _screenStack.peek().onMouseUp(e, _screenStack);
+      }
+    });
   }
 
   void _render() {
