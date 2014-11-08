@@ -1,11 +1,12 @@
 
 body {
-  background-color: #F8F8F8;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2em;
   margin: 15px;
+  margin: 0; padding: 0;
+  background: #dedede;
 }
 
 h1, p {
@@ -27,3 +28,12 @@ h1, p {
   -webkit-user-select: none;
   user-select: none;
 }
+
+.navigation { 
+  height: 60px;
+  width: 100%;
+  border-bottom: 2px solid #282C33;
+  background-color: white;
+  color: #282C33;
+}
+
