@@ -54,7 +54,7 @@ class InfinityLab {
 
   void _clampFramerate() {
     int sleepMS = ((1000.0 / Screen.FPS) -
-                   (new DateTime.now().millisecondsSinceEpoch - _lastMS));
+                   (new DateTime.now().millisecondsSinceEpoch - _lastMS)).floor();
     if (sleepMS > 0) {
       Util.sleep(sleepMS);
     }
