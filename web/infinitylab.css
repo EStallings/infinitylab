@@ -1,6 +1,6 @@
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2em;
@@ -8,6 +8,8 @@ body {
   margin: 0; padding: 0;
   background: #dedede;
 }
+
+#main { width: 800px; margin: 0 auto; background: #efefef; padding: 0;} 
 
 h1, p {
   color: #333;
@@ -29,11 +31,25 @@ h1, p {
   user-select: none;
 }
 
-.navigation { 
-  height: 60px;
-  width: 100%;
-  border-bottom: 2px solid #282C33;
-  background-color: white;
-  color: #282C33;
-}
 
+/* N A V I G A T I O N */
+
+.navigation { 
+  height: 60px; width: 100%; border-bottom: 2px solid #282C33;
+  background-color: white; color: #898999; overflow: hidden; }
+
+.nav_width {
+  width:800px; margin:0 auto; }
+
+.navigation ul {
+  margin: 0; padding: 0; list-style-type: none; }
+
+.navigation ul li {
+  float: left; margin-left: 2px; margin-top: 5px;
+  width: 90px; padding: 20px; font-size: 28px; }
+
+.navigation .logo { 
+  float: left; margin-top: 12px; }
+
+.navigation .infinity { color: #282C33; text-transform: uppercase; width: 300px; }
+.navigation li:hover  { color: #585C93; }

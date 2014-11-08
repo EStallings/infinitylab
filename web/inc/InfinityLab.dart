@@ -38,7 +38,8 @@ class InfinityLab {
       _renderer = new CanvasRenderer(width: Screen.WIDTH,
           height: Screen.HEIGHT, interactive: true);
     }
-    document.body.append(_renderer.view);
+    DivElement mainDiv = document.querySelector('#main');
+    mainDiv.append(_renderer.view);
 
     _stage.children.add(AssetManager.getSprite(Asset.TEST));
   }
