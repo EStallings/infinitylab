@@ -42,11 +42,11 @@ class AssetManager {
       throw "AssetManager.init(): AssetManager already initialized!\n";
     }
     _initSprites();
+    _initFonts();
     _initialized = true;
   }
 
   static void _initFonts() {
-    _
   }
 
   static void _initSprites() {
