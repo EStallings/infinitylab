@@ -2,15 +2,17 @@
 import 'dart:html';
 import '../lib/pixi.dart';
 import 'AssetManager.dart';
+import 'MainMenuScreen.dart';
 import 'Screen.dart';
+import 'ScreenStack.dart';
 import 'Util.dart';
 
 class InfinityLab {
 
   Renderer _renderer;
   Stage _stage = new Stage(new Colour.fromHtml('#fff'));
-  double _rotRate = 0.0;
   int _lastMS = new DateTime.now().millisecondsSinceEpoch;
+  ScreenStack _screenStack = new ScreenStack();
 
   InfinityLab() {
     _init();
@@ -22,6 +24,7 @@ class InfinityLab {
 
   void _init() {
     AssetManager.init();
+    _screenStack.push(new MainMenuScreen());
     _initRenderer();
   }
 
@@ -36,16 +39,7 @@ class InfinityLab {
     }
     document.body.append(_renderer.view);
 
-    AssetManager.getSprite(Asset.TEST)
-      ..anchor = new Point(0.5, 0.5)
-      ..position = new Point(Screen.WIDTH / 2, Screen.HEIGHT / 2);
-
     _stage.children.add(AssetManager.getSprite(Asset.TEST));
-  }
-
-  void _update() {
-    _rotRate += 0.0001;
-    AssetManager.getSprite(Asset.TEST).rotation += _rotRate;
   }
 
   void _render() {
@@ -62,9 +56,15 @@ class InfinityLab {
   }
 
   void _doTick(double num) {
-    _update();
-    _render();
-    _clampFramerate();
-    window.requestAnimationFrame(_doTick);
+    if (_screenStack.size() > 0) {
+      if (!_screenStack.peek().update(_screenStack)) {
+        _screenStack.pop();
+      } else {
+        _screenStack.peek().render(_stage);
+        _render();
+      }
+      _clampFramerate();
+      window.requestAnimationFrame(_doTick);
+    }
   }
 }
