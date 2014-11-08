@@ -1,4 +1,5 @@
 /* -*- dart -*- */
+library Screen;
 
 class Screen {
   static const int HEIGHT = 480;

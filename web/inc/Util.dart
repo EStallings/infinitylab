@@ -1,4 +1,5 @@
 /* -*- dart -*- */
+library Util;
 import 'dart:async';
 class Util {
   _Util() {
