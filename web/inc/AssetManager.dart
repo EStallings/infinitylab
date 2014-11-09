@@ -90,7 +90,7 @@ class AssetManager {
   }
 
   static void _loadFont(FontAsset asset, String fontName, int fontSize) {
-    AssetLoader l = new AssetLoader(["../fnt/" + fontName.toLowerCase() + ".fnt"])
+    AssetLoader l = new AssetLoader(["../web/fnt/" + fontName.toLowerCase() + ".fnt"])
       ..onComplete.listen((c) {
         _fonts.putIfAbsent(asset, () => fontSize.toString() + "px " + fontName);
       })
