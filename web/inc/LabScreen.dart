@@ -3,30 +3,27 @@
 import 'dart:html';
 import '../lib/pixi.dart';
 import 'AssetManager.dart';
+import 'Grid.dart';
 import 'Screen.dart';
 class LabScreen extends Screen {
   double _rotRate = 0.0;
   DisplayObjectContainer _spriteBatch = new DisplayObjectContainer();
+  Grid grid = new Grid();
 
   LabScreen() {
-    AssetManager.getSprite(Asset.TEST2)
-      ..anchor = new Point(0.5, 0.5)
-      ..position = new Point(Screen.WIDTH / 2, Screen.HEIGHT / 2);
-
-    _spriteBatch.children.add(AssetManager.getSprite(Asset.TEST2));
   }
 
   void onMouseUp(InteractionData e, ScreenStack stack) {
-    stack.pop();
   }
 
   bool update(ScreenStack stack) {
-    _rotRate += 0.0001;
-    AssetManager.getSprite(Asset.TEST2).rotation += _rotRate;
     return true;
   }
 
-  void render(ScreenStack stack, Stage stage) {
+  void render(ScreenStack stack, DisplayObjectContainer stage) {
+    _spriteBatch.children.clear();
+    grid.render(_spriteBatch);
+
     stage.children.clear();
     stage.children.add(_spriteBatch);
   }

@@ -40,8 +40,6 @@ class InfinityLab {
     }
     DivElement mainDiv = document.querySelector('#main');
     mainDiv.append(_renderer.view);
-
-    _stage.children.add(AssetManager.getSprite(Asset.TEST));
   }
 
   void _initListeners() {

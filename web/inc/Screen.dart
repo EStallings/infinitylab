@@ -1,11 +1,12 @@
 /* -*- dart -*- */
 library Screen;
 
+import 'dart:html';
 import '../lib/pixi.dart';
 import 'ScreenStack.dart';
 abstract class Screen {
-  static const int HEIGHT = 480;
-  static const int WIDTH = 800;
+  static final int WIDTH = 1680;
+  static final int HEIGHT = 1680;
   static const double FPS = 30.0;
 
   /**
@@ -23,5 +24,5 @@ abstract class Screen {
   /**
    * Called when this Screen should render itself, once per frame.
    */
-  /* abstract */ void render(Stage stage);
+  /* abstract */ void render(DisplayObjectContainer g);
 }

@@ -8,7 +8,8 @@ import 'Screen.dart';
 import 'LabScreen.dart';
 class SplashScreen extends Screen {
 
-  Sprite _splashLogo = AssetManager.getSprite(Asset.SPLASHLOGO);
+  Sprite _splashLogo = AssetManager.getNewSprite(new Point(100, 100),
+      Asset.SPLASHLOGO);
   DisplayObjectContainer _spriteBatch = new DisplayObjectContainer();
   BitmapText _text = null;
 
@@ -16,28 +17,19 @@ class SplashScreen extends Screen {
     _splashLogo
       ..anchor = new Point(0.5, 0.5)
       ..position = new Point(Screen.WIDTH / 2, Screen.HEIGHT / 2);
+    _spriteBatch.children.add(_splashLogo);
   }
 
   void onMouseUp(InteractionData e, ScreenStack stack) {
-    //stack.push(new LabScreen());
-    _spriteBatch.children.clear();
-    if (_text == null) {
-      _text = AssetManager.renderStr("POOP", FontAsset.AVENIR);
-      if (_text != null) {
-        _text.position = new Point(200, 200);
-        _spriteBatch.children.add(_text);
-      }
-    } else {
-      _text = null;
-    }
+    stack.push(new LabScreen());
   }
 
   bool update(ScreenStack stack) {
     return true;
   }
 
-  void render(ScreenStack stack, Stage stage) {
-    stage.children.clear();
-    stage.children.add(_spriteBatch);
+  void render(ScreenStack stack, DisplayObjectContainer g) {
+    g.children.clear();
+    g.children.add(_spriteBatch);
   }
 }
