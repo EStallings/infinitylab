@@ -4,6 +4,8 @@ import 'dart:html';
 import 'AssetManager.dart';
 import 'Screen.dart';
 import 'LabScreen.dart';
+import 'ScreenStack.dart';
+
 class MainMenuScreen extends Screen {
   double _rotRate = 0.0;
 
@@ -13,7 +15,7 @@ class MainMenuScreen extends Screen {
       ..position = new Point(Screen.WIDTH / 2, Screen.HEIGHT / 2);
   }
 
-  void onMouseUp(InteractionData e, ScreenStack stack) {
+  void onMouseUp(e, ScreenStack stack) {
     stack.push(new LabScreen());
   }
 

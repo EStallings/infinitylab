@@ -1,4 +1,5 @@
 /* -*- dart -*- */
+library SplashScreen;
 
 import 'dart:html';
 import 'dart:math';
@@ -6,6 +7,8 @@ import '../lib/pixi.dart';
 import 'AssetManager.dart';
 import 'Screen.dart';
 import 'LabScreen.dart';
+import 'ScreenStack.dart';
+
 class SplashScreen extends Screen {
 
   Sprite _splashLogo = AssetManager.getNewSprite(new Point(100, 100),
@@ -20,7 +23,7 @@ class SplashScreen extends Screen {
     _spriteBatch.children.add(_splashLogo);
   }
 
-  void onMouseUp(InteractionData e, ScreenStack stack) {
+  void onMouseUp(e, ScreenStack stack) {
     stack.push(new LabScreen());
   }
 

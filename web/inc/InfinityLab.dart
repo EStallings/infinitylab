@@ -43,7 +43,7 @@ class InfinityLab {
   }
 
   void _initListeners() {
-    _stage.onMouseUp.listen((InteractionData e) {
+    _stage.onMouseUp.listen((e) {
       if (_screenStack.size() > 0) {
         _screenStack.peek().onMouseUp(e, _screenStack);
       }

@@ -1,10 +1,13 @@
 /* -*- dart -*- */
+library LabScreen;
 
 import 'dart:html';
 import '../lib/pixi.dart';
 import 'AssetManager.dart';
 import 'Grid.dart';
 import 'Screen.dart';
+import 'ScreenStack.dart';
+
 class LabScreen extends Screen {
   double _rotRate = 0.0;
   DisplayObjectContainer _spriteBatch = new DisplayObjectContainer();
@@ -13,7 +16,7 @@ class LabScreen extends Screen {
   LabScreen() {
   }
 
-  void onMouseUp(InteractionData e, ScreenStack stack) {
+  void onMouseUp(e, ScreenStack stack) {
   }
 
   bool update(ScreenStack stack) {

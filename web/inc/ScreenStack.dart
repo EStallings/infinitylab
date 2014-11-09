@@ -1,4 +1,5 @@
 /* -*- dart -*- */
+library ScreenStack;
 import 'Screen.dart';
 
 class ScreenStack {

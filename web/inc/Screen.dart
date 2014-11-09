@@ -1,5 +1,5 @@
 /* -*- dart -*- */
-library Screen;
+library InfScreen;
 
 import 'dart:html';
 import '../lib/pixi.dart';
@@ -12,7 +12,7 @@ abstract class Screen {
   /**
    * Called when a MouseUp event happens at any location on the web page.
    */
-  /* abstract */ void onMouseUp(InteractionData e);
+  /* abstract */ void onMouseUp(e, ScreenStack stack);
 
   /**
    * Called when this Screen should update itself, once per frame.
@@ -24,5 +24,5 @@ abstract class Screen {
   /**
    * Called when this Screen should render itself, once per frame.
    */
-  /* abstract */ void render(DisplayObjectContainer g);
+  /* abstract */ void render(ScreenStack stack, DisplayObjectContainer g);
 }
