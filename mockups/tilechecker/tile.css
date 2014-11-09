@@ -1,0 +1,66 @@
+
+body {
+  font-family: 'Raleway', 'Open Sans', sans-serif;
+  font-size: 14px; font-weight: normal; line-height: .7em;
+  margin: 0; padding: 0; background: #dedede; }
+
+#main { width: 800px; height: 300px; margin: 28px auto; background: #efefef; padding: 0; border: 1px solid #888C93; } 
+
+h1, p { color: #333; }
+
+#sample_container_id {
+  width: 100%; height: 400px;
+  position: relative; border: 1px solid #ccc;
+  background-color: #fff; }
+
+#sample_text_id {
+  font-size: 24pt; text-align: center; margin-top: 140px;
+  -webkit-user-select: none;
+  user-select: none; }
+
+
+/* N A V I G A T I O N */
+
+.navigation { 
+  height: 60px; width: 100%; border-bottom: 2px solid #888C93;
+  background-color: white; color: #898999; overflow: hidden; }
+
+.nav_width {
+  width:800px; margin:0 auto; }
+
+.navigation ul {
+  margin: 0; padding: 0; list-style-type: none; }
+
+.navigation ul li {
+  float: left; margin-left: 2px; margin-top: 5px;
+  width: 70px; padding: 20px; font-size: 21px; }
+
+.navigation .logo { 
+  float: left; margin-top: 12px; }
+
+.navigation .infinity { color: #282C33; text-transform: uppercase; font-size: 28px; width: 300px; }
+.navigation li:hover  { color: #585C93; }
+
+
+/* T I L E S */
+
+floor01, wallv, wallh, wall0123, wall123, wall23, wall01, 
+doorvop, doorhcl, device { width: 48px; height: 48px; background: #dedede; display: inline-block; margin:0; padding:0; }
+
+floor01  { background: #dedede url("../../web/img/tiles48/floor01.png") no-repeat 0 0; }
+wallv    { background: #454545 url("../../web/img/tiles48/wall_v.png") no-repeat 0 0; }
+wallh    { background: #454545 url("../../web/img/tiles48/wall_h.png") no-repeat 0 0; }
+wall01   { background: #454545 url("../../web/img/tiles48/wall_01.png") no-repeat 0 0; }
+wall23   { background: #454545 url("../../web/img/tiles48/wall_23.png") no-repeat 0 0; }
+wall123  { background: #454545 url("../../web/img/tiles48/wall_123.png") no-repeat 0 0; }
+wall0123 { background: #454545 url("../../web/img/tiles48/wall_0123.png") no-repeat 0 0; }
+
+
+
+doorvop   { background: #baFFba url("../../web/img/tiles48/door_v_open.png") no-repeat 0 0; }
+doorhcl   { background: #FFbaba url("../../web/img/tiles48/door_h_closed.png") no-repeat 0 0; }
+device   { background: #4545DD url("../../web/img/tiles48/device.png") no-repeat 0 0; }
+
+
+
+
