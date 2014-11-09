@@ -4,7 +4,7 @@ body {
   font-size: 14px; font-weight: normal; line-height: .7em;
   margin: 0; padding: 0; background: #dedede; }
 
-#main { width: 800px; height: 300px; margin: 28px auto; background: #efefef; padding: 0; border: 1px solid #888C93; } 
+#main { width: 768px; height: 480px; margin: 28px auto; background: #efefef; padding: 0; border: 1px solid #888C93; } 
 
 h1, p { color: #333; }
 
@@ -26,7 +26,7 @@ h1, p { color: #333; }
   background-color: white; color: #898999; overflow: hidden; }
 
 .nav_width {
-  width:800px; margin:0 auto; }
+  width: 768px; margin:0 auto; }
 
 .navigation ul {
   margin: 0; padding: 0; list-style-type: none; }
@@ -44,7 +44,7 @@ h1, p { color: #333; }
 
 /* T I L E S */
 
-floor01, wallv, wallh, wall0123, wall123, wall23, wall01, 
+floor01, wallv, wallh, wall0123, wall123, wall23, wall01, wall013, doorhop, 
 doorvop, doorhcl, device { width: 48px; height: 48px; background: #dedede; display: inline-block; margin:0; padding:0; }
 
 floor01  { background: #dedede url("../../web/img/tiles48/floor01.png") no-repeat 0 0; }
@@ -52,13 +52,15 @@ wallv    { background: #454545 url("../../web/img/tiles48/wall_v.png") no-repeat
 wallh    { background: #454545 url("../../web/img/tiles48/wall_h.png") no-repeat 0 0; }
 wall01   { background: #454545 url("../../web/img/tiles48/wall_01.png") no-repeat 0 0; }
 wall23   { background: #454545 url("../../web/img/tiles48/wall_23.png") no-repeat 0 0; }
+wall013  { background: #454545 url("../../web/img/tiles48/wall_013.png") no-repeat 0 0; }
 wall123  { background: #454545 url("../../web/img/tiles48/wall_123.png") no-repeat 0 0; }
 wall0123 { background: #454545 url("../../web/img/tiles48/wall_0123.png") no-repeat 0 0; }
 
 
-
-doorvop   { background: #baFFba url("../../web/img/tiles48/door_v_open.png") no-repeat 0 0; }
+doorhop   { background: #baFFba url("../../web/img/tiles48/door_h_open.png") no-repeat 0 0; }
 doorhcl   { background: #FFbaba url("../../web/img/tiles48/door_h_closed.png") no-repeat 0 0; }
+doorvop   { background: #baFFba url("../../web/img/tiles48/door_v_open.png") no-repeat 0 0; }
+doorvcl   { background: #FFbaba url("../../web/img/tiles48/door_v_closed.png") no-repeat 0 0; }
 device   { background: #4545DD url("../../web/img/tiles48/device.png") no-repeat 0 0; }
 
 
