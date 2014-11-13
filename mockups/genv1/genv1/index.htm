@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><title>∞dynamics</title><meta charset="UTF-8">
+<body bgcolor="010101"><canvas id="canvas"></canvas>
+
+<script type="text/javascript">
+	var canvas = document.getElementById("canvas");
+	var gfx = canvas.getContext("2d");
+	function rFloat(x){return Math.random()*x;}
+	function rInt(x){return Math.floor(Math.random()*x);}
+	function rgb(r,g,b){gfx.fillStyle=gfx.strokeStyle="rgb("+Math.floor(255*r)+","+Math.floor(255*g)+","+Math.floor(255*b)+")";}
+	function rgba(r,g,b,a){gfx.fillStyle=gfx.strokeStyle="rgba("+Math.floor(255*r)+","+Math.floor(255*g)+","+Math.floor(255*b)+","+a+")";}
+	function rect(x0,y0,x1,y1){gfx.beginPath();gfx.moveTo(x0,y0);gfx.lineTo(x0,y1);gfx.lineTo(x1,y1);gfx.lineTo(x1,y0);gfx.fill();}
+	function line(x0,y0,x1,y1){gfx.beginPath();gfx.moveTo(x0,y0);gfx.lineTo(x1,y1);gfx.stroke();}
+	function circle(x,y,r){gfx.beginPath();gfx.arc(x,y,r,0,2*Math.PI,false);gfx.stroke();}
+</script>
+
+<script type="text/javascript" src="map.js"></script>
+<script type="text/javascript" src="tile.js"></script>
+<script type="text/javascript" src="game.js"></script>
+
+<script type="text/javascript">
+	canvas.onselectstart = function(){return false;};
+	(function main(){tick=new Date().getTime();init();render();})();
+</script>
+
+</body></html>
